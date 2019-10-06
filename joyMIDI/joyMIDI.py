@@ -54,7 +54,7 @@ class joyMIDI(ControlSurface):
         self.pan_down_button    = ButtonElement(True, MIDI_NOTE_TYPE, 0, 90)   # tracks, return_tracks, master_track
         self.volume_up_button   = ButtonElement(True, MIDI_NOTE_TYPE, 0, 99)   # tracks, return_tracks, master_track
         self.volume_down_button = ButtonElement(True, MIDI_NOTE_TYPE, 0, 91)   # tracks, return_tracks, master_track
-        self.track_nav_encoder  = EncoderElement(MIDI_CC_TYPE, 0, 7, Live.MidiMap.MapMode.relative_binary_offset)
+        self.track_nav_encoder  = EncoderElement(MIDI_CC_TYPE, 0, 14, Live.MidiMap.MapMode.relative_binary_offset)
         # mixer
         self.mixer = MixerComponent(7, 2)
         self.mixer.selected_strip().set_mute_button(self.mute_button)
@@ -145,7 +145,7 @@ class joyMIDI(ControlSurface):
             [ButtonElement(True, MIDI_NOTE_TYPE, 0, 83+i) for i in range(num_scenes)]
         ])
         self.scene_stop_button = ButtonElement(True, MIDI_NOTE_TYPE, 0, 75)
-        self.session_scene_nav_encoder = EncoderElement(MIDI_CC_TYPE, 0, 8, Live.MidiMap.MapMode.relative_binary_offset)
+        self.session_scene_nav_encoder = EncoderElement(MIDI_CC_TYPE, 0, 15, Live.MidiMap.MapMode.relative_binary_offset)
         # session
         self.session = SessionComponent(num_tracks, num_scenes)
         self.session.set_offsets(track_offset, scene_offset)
